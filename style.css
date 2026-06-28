@@ -1,0 +1,212 @@
+:root {
+    --bg-color: #0a0a0a;
+    --text-main: #ffffff;
+    --text-dim: #b0b0b0;
+    --accent-pink: #ff75c3;
+    --accent-purple: #9b51e0;
+    --font-family: 'Inter', sans-serif;
+    --transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-family);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Background & Particles */
+.bg-gradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #0a0a0a 100%);
+    z-index: -2;
+}
+
+#particleCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.4;
+}
+
+/* Loader */
+.loader-wrapper {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-circle {
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-top: 2px solid var(--accent-pink);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* Section Management */
+.section {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.05);
+    transition: var(--transition);
+    padding: 20px;
+}
+
+.section.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Typography */
+h1 { font-weight: 300; font-size: 2.5rem; letter-spacing: 2px; margin-bottom: 30px; }
+h2 { font-weight: 400; font-size: 1.8rem; margin-bottom: 20px; color: var(--accent-pink); }
+p { font-weight: 300; line-height: 1.8; color: var(--text-dim); font-size: 1.05rem; }
+
+.text-block {
+    margin-bottom: 40px;
+}
+
+/* Input Styles */
+.input-wrapper {
+    position: relative;
+    margin: 40px auto;
+    width: 250px;
+}
+
+input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    outline: none;
+    letter-spacing: 4px;
+}
+
+.line {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: var(--accent-purple);
+    transition: 0.4s ease;
+}
+
+input:focus + .line {
+    width: 100%;
+    left: 0;
+}
+
+/* Button Styles */
+.btn-glow {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    padding: 12px 40px;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.btn-glow:hover {
+    border-color: var(--accent-pink);
+    box-shadow: 0 0 20px rgba(255, 117, 195, 0.3);
+}
+
+/* Ripple Effect */
+.ripple {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: ripple-animation 0.6s linear;
+}
+
+@keyframes ripple-animation {
+    from { width: 0; height: 0; opacity: 0.5; }
+    to { width: 500px; height: 500px; opacity: 0; }
+}
+
+/* Animations */
+.fade-up { animation: fadeUp 1s forwards; }
+.slide-up { animation: slideUp 1s forwards; }
+.fade-in { animation: fadeIn 1.5s forwards; opacity: 0; }
+
+.delay-1 { animation-delay: 0.3s; }
+.delay-2 { animation-delay: 0.6s; }
+.delay-3 { animation-delay: 1s; }
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.error-text {
+    color: var(--accent-pink);
+    font-size: 0.8rem;
+    margin-top: 15px;
+    height: 20px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+    p { font-size: 0.95rem; }
+}

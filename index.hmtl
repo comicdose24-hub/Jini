@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jini</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Clean, Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Premium Loading Screen -->
+    <div id="loader" class="loader-wrapper">
+        <div class="loader-content">
+            <div class="loader-circle"></div>
+            <p>Refining Experience</p>
+        </div>
+    </div>
+
+    <!-- Background Layer -->
+    <div class="bg-gradient"></div>
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Main Application -->
+    <main id="app">
+        
+        <!-- Section 1: Password -->
+        <section id="sec-1" class="section active">
+            <div class="container">
+                <h1 class="fade-up">Authentication</h1>
+                <div class="input-wrapper slide-up">
+                    <input type="password" id="passwordField" placeholder="Identity Code">
+                    <div class="line"></div>
+                </div>
+                <button onclick="validatePassword()" class="btn-glow slide-up delay-1">Continue</button>
+                <p id="error" class="error-text"></p>
+            </div>
+        </section>
+
+        <!-- Section 2: Greeting + Compliments -->
+        <section id="sec-2" class="section">
+            <div class="container">
+                <h2 id="type-2" class="typewriter"></h2>
+                <div class="text-block fade-in delay-2">
+                    <p>There is a rare kind of grace in how you carry yourself. It is not just about your presence, but the intelligence and depth you bring into every conversation. You have this effortless way of making the world around you seem more composed and significantly more interesting.</p>
+                </div>
+                <button onclick="navigateTo(3)" class="btn-glow fade-in delay-3">Next</button>
+            </div>
+        </section>
+
+        <!-- Section 3: Teasing + Light Flirting -->
+        <section id="sec-3" class="section">
+            <div class="container">
+                <h2 id="type-3" class="typewriter"></h2>
+                <div class="text-block fade-in delay-2">
+                    <p>I have noticed you have this habit of being right most of the time. It is quite distracting, honestly. You manage to be incredibly sharp and impossibly charming at the same time, which feels like a very unfair advantage to have over anyone else.</p>
+                </div>
+                <button onclick="navigateTo(4)" class="btn-glow fade-in delay-3">Next</button>
+            </div>
+        </section>
+
+        <!-- Section 4: Respect + Sweet Ending -->
+        <section id="sec-4" class="section">
+            <div class="container">
+                <h2 id="type-4" class="typewriter"></h2>
+                <div class="text-block fade-in delay-2">
+                    <p>Beyond everything else, I have a profound respect for the person you are. Your perspective is unique, and your spirit is genuinely captivating. Thank you for being exactly who you are. This space was designed simply to remind you of that.</p>
+                </div>
+                <button onclick="restartApp()" class="btn-glow fade-in delay-3">Replay</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
